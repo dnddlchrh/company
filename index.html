@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+  <style media="screen">
+  *{margin:0;padding:0}
+    html,body{
+      width:100%;
+      height: 1000px;
+    }
+    #wrap{
+      width:100%;
+      height:500px;
+    }
+    #first_chart{
+      float:left;
+      height: 400px;
+       width: 50%;
+    }
+    #sec_chart{
+      float:right;
+      height: 400px;
+       width: 50%;
+    }
+    #myChart{
+      float:right;
+      height: 400px;
+       width: 500px;
+    }
+  </style>
+<script>
+window.onload = function () {
+  var first_chart = {
+  	animationEnabled: true,
+  	title: {
+  		text: "app 통계차트"
+  	},
+  	data: [{
+  		type: "doughnut", // 차트모양
+  		innerRadius: "40%", // 원형차트 굵기
+  		showInLegend: true, // 하단 색상 value
+  		legendText: "{label}", // 해당 데이터의 label 값 대입
+  		indexLabel: "{label}: #percent%", // %표시해줌
+  		dataPoints: [
+  			{ label: "무료", y: 688 },
+  			{ label: "유료", y: 287 }
+  		]
+  	}],
+    backgroundColor: [
+        'rgba(255, 99, 132, 0.2)', //1번째 그래프의 바탕색
+        'rgba(54, 162, 235, 0.2)'
+    ],
+  };
+
+  var sec_chart = {
+  	animationEnabled: true,
+  	title: {
+  		text: "ma 통계차트"
+  	},
+  	data: [{
+  		type: "doughnut",
+  		innerRadius: "40%",
+  		showInLegend: true,
+  		legendText: "{label}",
+  		indexLabel: "{label}: #percent%",
+  		dataPoints: [
+  			{ label: "무료", y: 269 },
+  			{ label: "유료", y: 194 }
+  		]
+  	}]
+  };
+    $("#first_chart").CanvasJSChart(first_chart);
+    $("#sec_chart").CanvasJSChart(sec_chart);
+}
+
+</script>
+
+</head>
+<body>
+<div id="wrap">
+  <div id="first_chart"></div>
+  <div id="sec_chart"></div>
+
+</div>
+
+</body>
+
+</html>
